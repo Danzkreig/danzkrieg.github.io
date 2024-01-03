@@ -48,6 +48,46 @@ function doner(id) {
   target = document.getElementById(id);
   doneparent.insertBefore(target, done);
 }
+//edit button function
+function edit(id) {
+  target = document.getElementById(id);
+  target
+    .getElementsByClassName("text")[0]
+    .getElementsByClassName("titler")[0]
+    .setAttribute("contenteditable", "true");
+  target
+    .getElementsByClassName("text")[0]
+    .getElementsByClassName("description")[0]
+    .setAttribute("contenteditable", "true");
+  target
+    .getElementsByClassName("buttonlist")[0]
+    .getElementsByClassName("edit")[0]
+    .classList.add("hidden");
+  target
+    .getElementsByClassName("buttonlist")[0]
+    .getElementsByClassName("unedit")[0]
+    .classList.remove("hidden");
+}
+// disable edit
+function disableEdit(id) {
+  target = document.getElementById(id);
+  target
+    .getElementsByClassName("text")[0]
+    .getElementsByClassName("titler")[0]
+    .setAttribute("contenteditable", "false");
+  target
+    .getElementsByClassName("text")[0]
+    .getElementsByClassName("description")[0]
+    .setAttribute("contenteditable", "false");
+  target
+    .getElementsByClassName("buttonlist")[0]
+    .getElementsByClassName("edit")[0]
+    .classList.remove("hidden");
+  target
+    .getElementsByClassName("buttonlist")[0]
+    .getElementsByClassName("unedit")[0]
+    .classList.add("hidden");
+}
 // close form if clicked outside of bounding box
 document.addEventListener("click", (event) => {
   if (
@@ -69,8 +109,17 @@ submit.addEventListener("click", (event) => {
   let fart = document.createElement("button");
   let titleel = document.createElement("h4");
   let donebutton = document.createElement("button");
+  let editbutton = document.createElement("button");
+  let disablebutton = document.createElement("button");
   let buttons = document.createElement("div");
   let text = document.createElement("div");
+  editbutton.classList.add("edit");
+  editbutton.setAttribute("onclick", "edit(" + uid + ")");
+  editbutton.innerHTML = "E";
+  disablebutton.classList.add("unedit");
+  disablebutton.classList.add("hidden");
+  disablebutton.setAttribute("onclick", "disableEdit(" + uid + ")");
+  disablebutton.innerHTML = "D";
   buttons.classList.add("buttonlist");
   text.classList.add("text");
   donebutton.innerHTML = "✓";
@@ -93,9 +142,13 @@ submit.addEventListener("click", (event) => {
   priorityel.appendChild(taskpriority);
   descel.appendChild(taskdesc);
   titleel.appendChild(taskname);
+  descel.classList.add("description");
+  titleel.classList.add("titler");
   text.appendChild(titleel);
   text.appendChild(descel);
   text.appendChild(priorityel);
+  buttons.appendChild(disablebutton);
+  buttons.appendChild(editbutton);
   buttons.appendChild(fart);
   buttons.appendChild(donebutton);
   task.appendChild(text);
