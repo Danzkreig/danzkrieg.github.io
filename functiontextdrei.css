@@ -135,3 +135,6 @@ label {
 .hidden {
   display: none;
 }
+.dropdownEnabled.div {
+  display: block;
+}

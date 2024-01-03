@@ -40,6 +40,10 @@ var uid = 1;
 function farter(id) {
   target = document.getElementById(id);
   target.remove("");
+  for (i = 0; i < 4; i++) {
+    let elementcounter = bigboy[i].children.length;
+    counter[i].innerHTML = elementcounter - 1;
+  }
 }
 // done button function
 function doner(id) {
@@ -67,6 +71,10 @@ function edit(id) {
     .getElementsByClassName("buttonlist")[0]
     .getElementsByClassName("unedit")[0]
     .classList.remove("hidden");
+  target
+    .getElementsByClassName("buttonlist")[0]
+    .getElementsByClassName("priorityel")[0]
+    .classList.add("dropdownEnabled");
 }
 // disable edit
 function disableEdit(id) {
@@ -124,8 +132,21 @@ submit.addEventListener("click", (event) => {
   text.classList.add("text");
   donebutton.innerHTML = "✓";
   let priorityel = document.createElement("div");
+  let dropdown = document.createElement("div");
+  let low = document.createElement("div");
+  let medium = document.createElement("div");
+  let high = document.createElement("div");
   let descel = document.createElement("p");
   let farttext = document.createTextNode("X");
+  low.setAttribute("value", "low");
+  medium.setAttribute("value", "medium");
+  high.setAttribute("value", "high");
+  low.classList.add("hidden");
+  medium.classList.add("hidden");
+  high.classList.add("hidden");
+  low.innerHTML = "low";
+  medium.innerHTML = "medium";
+  high.innerHTML = "high";
   donebutton.setAttribute("onclick", "doner(" + uid + ")");
   task.classList.add("taskcontainer");
   task.setAttribute("draggable", "true");
