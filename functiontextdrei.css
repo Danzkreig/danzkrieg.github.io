@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background-image: url(https://static01.nyt.com/images/2023/03/09/world/bakhmut-river-bridge-satellite/bakhmut-river-bridge-satellite-superJumbo-v2.jpg?quality=75&auto=webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+.container {
+  width: 300px;
+  background-color: #eaecf0;
+  border-radius: 8px;
+  margin-top: 100px;
+  height: fit-content;
+  gap: 5px;
+}
+.addcard {
+  margin-top: auto;
+  height: 40px;
+  border: 0;
+  background-color: #eaecf0;
+  border-radius: 4px;
+
+  margin: 5px;
+}
+.addcard h4 {
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 17px;
+  text-align: left;
+}
+.addcard:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.ontop {
+  display: flex;
+}
+.form {
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+label {
+  font-size: 14px;
+}
+.thing {
+  position: absolute;
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: -1;
+}
+.taskcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 6px;
+  margin-left: 5px;
+  margin-right: 5px;
+  position: static;
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.bigboy {
+  width: auto;
+  height: 100%;
+  min-height: 50px;
+}
+.priorityel {
+  border: 1px;
+  padding: 3px 3px 3px 10px;
+  border-color: #7f7f7f;
+  border-style: solid;
+  width: 50px;
+  border-radius: 8px;
+  font-weight: 200;
+}
+.button {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  border-color: #b2b2b2;
+}
+.text {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.buttonlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  gap: 7px;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.counter {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 10px;
+  color: #757678;
+}

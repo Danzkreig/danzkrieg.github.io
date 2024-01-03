@@ -1,0 +1,48 @@
+/* flexbox goods */
+.flex {
+  display: flex;
+}
+.center {
+  justify-content: center;
+  align-items: center;
+}
+.aligncenter {
+  align-items: center;
+}
+.justifycenter {
+  justify-content: center;
+}
+.alignend {
+  align-items: flex-end;
+}
+.justifyend {
+  justify-content: flex-end;
+}
+.column {
+  flex-direction: column;
+}
+.row {
+  flex-direction: row;
+}
+.rcolumn {
+  flex-direction: column-reverse;
+}
+.rrow {
+  flex-direction: row-reverse;
+}
+.space-between {
+  justify-content: space-between;
+}
+.space-around {
+  justify-content: space-around;
+}
+.space-evenly {
+  justify-content: space-evenly;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+/* flexbox end */

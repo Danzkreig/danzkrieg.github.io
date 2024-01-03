@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="functiontextdrei.css" />
+    <link rel="stylesheet" href="colors.css" />
+    <link rel="stylesheet" href="border.css" />
+    <link rel="stylesheet" href="flexbox.css" />
+    <link rel="stylesheet" href="misc.css" />
+  </head>
+  <body>
+    <div class="flex justifycenter row gap1vw margin-top">
+      <div class="container flex column todo">
+        <div class="flex row">
+          <h1 class="">To Do</h1>
+          <h3 class="counter"></h3>
+        </div>
+        <div class="bigboy" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <span id="todo"></span>
+        </div>
+        <button class="addcard todocard" onclick="changePriority(0)">
+          <h4>+ Add card</h4>
+        </button>
+      </div>
+      <div class="container flex column progress">
+        <div class="flex row">
+          <h1>In Progress</h1>
+          <h3 class="counter"></h3>
+        </div>
+        <div class="bigboy" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <span id="progressid"></span>
+        </div>
+        <button class="addcard todoprogress" onclick="changePriority(1)">
+          <h4>+ Add card</h4>
+        </button>
+      </div>
+      <div class="container flex column stuck">
+        <div class="flex row">
+          <h1>Stuck</h1>
+          <h3 class="counter"></h3>
+        </div>
+        <div class="bigboy" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <span id="stuck"></span>
+        </div>
+        <button class="addcard todostuck" onclick="changePriority(2)">
+          <h4>+ Add card</h4>
+        </button>
+      </div>
+      <div class="container flex column done">
+        <div class="flex row">
+          <h1>Done</h1>
+          <h3 class="counter"></h3>
+        </div>
+        <div class="bigboy" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <span id="done"></span>
+        </div>
+        <button class="addcard tododone" onclick="changePriority(3)">
+          <h4>+ Add card</h4>
+        </button>
+      </div>
+    </div>
+    <div class="backdrop" id="backdrop">
+      <div class="thing">
+        <form>
+          <h1>Add Task</h1>
+          <div>
+            <label name="title">Title</label>
+            <input
+              id="title"
+              name="title"
+              placeholder="Destroy the country"
+              onkeypress="return event.keyCode!=13"
+            />
+          </div>
+          <div>
+            <label name="description">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              cols="50"
+              placeholder="Deploy a VBIED at the capital building"
+            ></textarea>
+          </div>
+          <div>
+            <label name="status">Status</label>
+            <select name="status" id="status">
+              <option value="todo" id="tod">To do</option>
+              <option value="inprogress" id="pro">In progress</option>
+              <option value="stuck" id="stu">Stuck</option>
+              <option value="done" id="dne">Done</option>
+            </select>
+          </div>
+          <div>
+            <label name="priority">Priority</label>
+            <select name="priority" id="priority">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <button type="button" id="submit">Add Task</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="functiontextdrei.js" async defer></script>
+</html>

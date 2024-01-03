@@ -1,0 +1,53 @@
+/* colors */
+.black {
+  color: #101010;
+}
+.black-bg {
+  background-color: #101010;
+}
+.grey {
+  color: grey;
+}
+.grey-bg {
+  background-color: grey;
+}
+.green {
+  color: green;
+}
+.green-bg {
+  background-color: green;
+}
+.white {
+  color: white;
+}
+.darkblue {
+  color: darkblue;
+}
+.darkblue-bg {
+  background-color: darkblue;
+}
+.blue {
+  color: blue;
+}
+.blue-bg {
+  background-color: blue;
+}
+.red {
+  color: red;
+}
+.red-bg {
+  background-color: red;
+}
+.brown {
+  color: brown;
+}
+.brown-bg {
+  background-color: brown;
+}
+.darkred {
+  color: darkred;
+}
+.darkred-bg {
+  background-color: darkred;
+}
+/*colors end*/

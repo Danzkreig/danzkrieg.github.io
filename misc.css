@@ -1,0 +1,113 @@
+/* misc goods */
+/* position */
+.position-absolute {
+  position: absolute;
+}
+.position-relative {
+  position: relative;
+}
+.position-fixed {
+  position: fixed;
+}
+.position-sticky {
+  position: sticky;
+}
+
+/* text stuff */
+.text-align-r {
+  text-align: right;
+}
+.text-align-l {
+  text-align: left;
+}
+.text-align-c {
+  text-align: center;
+}
+/* display */
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.inline-block {
+  display: inline-block;
+}
+/* gap */
+.gap30 {
+  gap: 30px;
+}
+.gap1vw {
+  gap: 1vw;
+}
+.gap1vh {
+  gap: 1vh;
+}
+.gap5vw {
+  gap: 5vw;
+}
+.gap5vh {
+  gap: 5vh;
+}
+/* padding */
+.padding-right {
+  padding-right: 1vw;
+}
+.padding-left {
+  padding-left: 1vw;
+}
+.padding-top {
+  padding-top: 1vh;
+}
+.padding-bottom {
+  padding-bottom: 1vh;
+}
+.padding-right-5vw {
+  padding-right: 5vw;
+}
+.padding-left-5vw {
+  padding-left: 5vw;
+}
+.padding-top-5vh {
+  padding-top: 5vh;
+}
+.padding-bottom-5vh {
+  padding-bottom: 5vh;
+}
+.padding-all {
+  padding: 1vw;
+}
+.padding-all-3 {
+  padding: 3vh 3vw 3vh 3vw;
+}
+/* margin */
+.margin-right {
+  margin-right: 5vw;
+}
+.margin-left {
+  margin-left: 5vw;
+}
+.margin-top {
+  margin-top: 5vh;
+}
+.margin-bottom {
+  margin-bottom: 5vh;
+}
+/* border */
+.border-radius-1p {
+  border-radius: 1%;
+}
+.no-border {
+  border: 0;
+}
+/* sides */
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+/*  misc end*/

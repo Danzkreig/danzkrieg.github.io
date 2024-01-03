@@ -1,0 +1,21 @@
+
+//only known
+const arr = [1, 2, 3, 4];
+function test(arr, num) {
+  output = [];
+  output.push(num);
+  realoutput = [...arr, ...output];
+  arr.splice([arr.length - 1], 1);
+  console.log(realoutput);
+  console.log(arr);
+}
+test(arr, 123);
+
+//new
+const arr2 = [1, 2, 3, 4];
+function test(arr, num) {
+  console.log(arr.concat(num));
+  arr.pop();
+  console.log(arr);
+}
+test(arr2, 123);
