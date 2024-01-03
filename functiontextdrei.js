@@ -72,7 +72,6 @@ function edit(id) {
     .getElementsByClassName("unedit")[0]
     .classList.remove("hidden");
   target
-    .getElementsByClassName("buttonlist")[0]
     .getElementsByClassName("priorityel")[0]
     .classList.add("dropdownEnabled");
 }
@@ -96,9 +95,48 @@ function disableEdit(id) {
     .getElementsByClassName("unedit")[0]
     .classList.add("hidden");
   target
-    .getElementsByClassName("buttonlist")[0]
     .getElementsByClassName("priorityel")[0]
     .classList.remove("dropdownEnabled");
+}
+// dropdown checks for if edit is enabled;
+function drdown(id) {
+  vinuz = document.getElementById(id);
+  if (
+    vinuz
+      .getElementsByClassName("buttonlist")[0]
+      .getElementsByClassName("edit")[0]
+      .classList.contains("hidden") == true
+  ) {
+    vinuz.getElementsByClassName("priorityel")[0];
+    let dropdown = document.createElement("div");
+    let low = document.createElement("button");
+    let medium = document.createElement("button");
+    let high = document.createElement("button");
+    low.setAttribute("value", "low");
+    medium.setAttribute("value", "medium");
+    high.setAttribute("value", "high");
+    low.setAttribute("onclick", "changeParentText()");
+    medium.setAttribute("onclick", "changeParentText()");
+    high.setAttribute("onclick", "changeParentText()");
+    low.classList.add("fya");
+    medium.classList.add("fya");
+    high.classList.add("fya");
+    low.innerHTML = "low";
+    medium.innerHTML = "medium";
+    high.innerHTML = "high";
+    dropdown.classList.add("dropdown");
+    dropdown.appendChild(low);
+    dropdown.appendChild(medium);
+    dropdown.appendChild(high);
+    let parent = vinuz.getElementsByClassName("priorityel")[0];
+    parent.appendChild(dropdown);
+  }
+}
+// change parent content
+function changeParentText() {
+  let parent = event.target.parentNode.parentNode;
+  something = event.target.value;
+  parent.textContent = something;
 }
 // close form if clicked outside of bounding box
 document.addEventListener("click", (event) => {
@@ -136,21 +174,8 @@ submit.addEventListener("click", (event) => {
   text.classList.add("text");
   donebutton.innerHTML = "✓";
   let priorityel = document.createElement("div");
-  let dropdown = document.createElement("div");
-  let low = document.createElement("div");
-  let medium = document.createElement("div");
-  let high = document.createElement("div");
   let descel = document.createElement("p");
   let farttext = document.createTextNode("X");
-  low.setAttribute("value", "low");
-  medium.setAttribute("value", "medium");
-  high.setAttribute("value", "high");
-  low.classList.add("hidden");
-  medium.classList.add("hidden");
-  high.classList.add("hidden");
-  low.innerHTML = "low";
-  medium.innerHTML = "medium";
-  high.innerHTML = "high";
   donebutton.setAttribute("onclick", "doner(" + uid + ")");
   task.classList.add("taskcontainer");
   task.setAttribute("draggable", "true");
@@ -165,6 +190,7 @@ submit.addEventListener("click", (event) => {
   fart.classList.add("button");
   fart.appendChild(farttext);
   priorityel.appendChild(taskpriority);
+  priorityel.setAttribute("onmouseenter", "drdown(" + uid + ")");
   descel.appendChild(taskdesc);
   titleel.appendChild(taskname);
   descel.classList.add("description");

@@ -135,6 +135,18 @@ label {
 .hidden {
   display: none;
 }
-.dropdownEnabled:hover div {
+.fya {
+  display: none;
+  width: 30px;
+  height: 10px;
+  margin-bottom: 10px;
+}
+.dropdown {
+  gap: 14px;
+}
+.dropdownEnabled:hover .fya {
+  display: block;
+}
+.dropdownEnabled .fya:hover {
   display: block;
 }
