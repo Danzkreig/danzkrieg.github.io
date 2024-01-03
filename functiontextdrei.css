@@ -135,6 +135,6 @@ label {
 .hidden {
   display: none;
 }
-.dropdownEnabled.div {
+.dropdownEnabled:hover div {
   display: block;
 }
