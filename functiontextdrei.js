@@ -40,6 +40,10 @@ var uid = 1;
 function farter(id) {
   target = document.getElementById(id);
   target.remove("");
+  for (i = 0; i < 4; i++) {
+    let elementcounter = bigboy[i].children.length;
+    counter[i].innerHTML = elementcounter - 1;
+  }
 }
 // done button function
 function doner(id) {
