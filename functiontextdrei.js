@@ -95,6 +95,10 @@ function disableEdit(id) {
     .getElementsByClassName("buttonlist")[0]
     .getElementsByClassName("unedit")[0]
     .classList.add("hidden");
+  target
+    .getElementsByClassName("buttonlist")[0]
+    .getElementsByClassName("priorityel")[0]
+    .classList.remove("dropdownEnabled");
 }
 // close form if clicked outside of bounding box
 document.addEventListener("click", (event) => {
