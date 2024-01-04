@@ -3,6 +3,7 @@ const counter = document.getElementsByClassName("counter");
 const bigboy = document.getElementsByClassName("bigboy");
 const addcard = document.getElementsByClassName("addcard");
 const backdrop = document.getElementById("backdrop");
+var music = new Audio("IraqLobster.ogg");
 const title = document.getElementById("title");
 const todo = document.getElementsByClassName("todo");
 const desc = document.getElementById("description");
@@ -51,6 +52,10 @@ function doner(id) {
   doneparent = done.parentNode;
   target = document.getElementById(id);
   doneparent.insertBefore(target, done);
+  for (i = 0; i < 4; i++) {
+    let elementcounter = bigboy[i].children.length;
+    counter[i].innerHTML = elementcounter - 1;
+  }
 }
 //edit button function
 function edit(id) {
@@ -132,6 +137,14 @@ function drdown(id) {
     parent.appendChild(dropdown);
   }
 }
+function dropdowndel(id) {
+  vinuz = document.getElementById(id);
+  console.log(vinuz);
+  vinuz
+    .getElementsByClassName("dropdownEnabled")[0]
+    .getElementsByClassName("dropdown")[0]
+    .remove();
+}
 // change parent content
 function changeParentText() {
   let parent = event.target.parentNode.parentNode;
@@ -191,6 +204,7 @@ submit.addEventListener("click", (event) => {
   fart.appendChild(farttext);
   priorityel.appendChild(taskpriority);
   priorityel.setAttribute("onmouseenter", "drdown(" + uid + ")");
+  priorityel.setAttribute("onmouseleave", "dropdowndel(" + uid + ")");
   descel.appendChild(taskdesc);
   titleel.appendChild(taskname);
   descel.classList.add("description");
@@ -246,6 +260,10 @@ for (var i = 0; i < fallschrimjager.length; i++) {
 }
 function drag(ev) {
   ev.dataTransfer.setData("text", ev.currentTarget.id);
+  for (i = 0; i < 4; i++) {
+    let elementcounter = bigboy[i].children.length;
+    counter[i].innerHTML = elementcounter - 1;
+  }
 }
 function drop(ev) {
   var data = ev.dataTransfer.getData("text");
@@ -259,3 +277,10 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 function GetChildren() {}
+function clearA() {
+  lober.style.animation = "dance 0s infinite";
+}
+function lobsterm() {
+  music.play();
+  lober.style.animation = "dance 1s 26";
+}

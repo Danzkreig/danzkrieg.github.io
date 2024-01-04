@@ -62,25 +62,101 @@
 //   return output;
 // }
 // console.log(sameAge(students));
-const array = [-2, -3, 4, -1, -2, 1, 5, -3];
-function findMaxSum(arr) {
-  temp = [];
-  max = 0;
-  sum = 0;
-  // this is hot garbage, there has gotta be a better way of parsing this array
-  for (i = 0; i < arr.length; i++) {
-    for (j = 0; j < arr.length; j++) {
-      sum = 0;
-      fart = arr.slice(i, j);
-      for (let k = 0; k < fart.length; k++) {
-        sum += fart[k];
-      }
-      if (sum > max) {
-        max = sum;
-        temp = fart;
-      }
-    }
+// const array = [-2, -3, 4, -1, -2, 1, 5, -3];
+// function findMaxSum(arr) {
+//   temp = [];
+//   max = 0;
+//   sum = 0;
+//   // this is hot garbage, there has gotta be a better way of parsing this array
+//   for (i = 0; i < arr.length; i++) {
+//     for (j = 0; j < arr.length; j++) {
+//       sum = 0;
+//       fart = arr.slice(i, j);
+//       for (let k = 0; k < fart.length; k++) {
+//         sum += fart[k];
+//       }
+//       if (sum > max) {
+//         max = sum;
+//         temp = fart;
+//       }
+//     }
+//   }
+//   return temp;
+// }
+// console.log(findMaxSum(array));
+// const arr = "The quick brown fox jumps over the lazy dog";
+// function findBiggestWord(arr) {
+//   let ded = arr.split(" ");
+//   let largest = 0;
+//   let word = "";
+//   for (i = 0; i < ded.length; i++) {
+//     if (ded[i].length > largest) {
+//       largest = ded[i].length;
+//       word = ded[i];
+//     }
+//   }
+//   return word;
+// }
+// console.log(findBiggestWord(arr));
+// const arr = [2, 5, 6, 7];
+// const target = 9;
+// function find(arr, t) {
+//   sum = 0;
+//   nums = [];
+//   for (i = 0; i < arr.length; i++) {
+//     for (j = i + 1; j < arr.length; j++) {
+//       sum = 0;
+//       sum = arr[i] + arr[j];
+//       if (sum === t) {
+//         nums.push(i, j);
+//       }
+//     }
+//   }
+//   return nums;
+// }
+// console.log(find(arr, target));
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// function reverser(arr) {
+//   joshua = [];
+//   for (i = arr.length - 1; i >= 0; i--) {
+//     joshua.push(arr[i]);
+//   }
+//   return joshua;
+// }
+// console.log(reverser(arr));
+// const arr = { b: 2, a: 1, c: 3 };
+// function lowtohigh(arr) {
+//   stuff = [];
+//   for (var thing in arr) {
+//     stuff.push([thing, arr[thing]]);
+//   }
+//   stuff.sort(function (a, b) {
+//     return a[1] - b[1];
+//   });
+//   return stuff;
+// }
+// console.log(lowtohigh(arr));
+var date = "2023-01-01";
+var added = "372";
+function dateAdd(date, add) {
+  let shit = date.split("-");
+  let day = parseInt(shit[2]);
+  let month = parseInt(shit[1]);
+  let year = parseInt(shit[0]);
+  day += parseInt(add);
+  if (day > 31) {
+    do {
+      day -= 31;
+      month += 1;
+    } while (day > 31);
   }
-  return temp;
+  if (month > 12) {
+    do {
+      month -= 12;
+      year += 1;
+    } while (month > 12);
+  }
+  return year + "-" + month + "-" + day;
 }
-console.log(findMaxSum(array));
+console.log(dateAdd(date, added));
