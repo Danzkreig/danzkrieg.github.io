@@ -43,15 +43,6 @@ function checkCollision(obj1, obj2) {
     rect1.y + rect1.height >= rect2.y &&
     rect1.y <= rect2.y + rect2.height
   );
-  /*
-  ball left + ball width >= edible left
-  325px + 30px >= 325px true
-  ball left <= edible left + edible width
-  325px <= 325px + 10px true 
-  ball top + ball height >= edible top
-  325px + 30px <= 325px 
-  ball top <= edible top + edible height
-  */
 }
 onmousemove = (e) => {
   var ball = container.getElementsByClassName("ball")[0];
