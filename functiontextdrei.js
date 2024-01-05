@@ -79,6 +79,10 @@ function edit(id) {
   target
     .getElementsByClassName("priorityel")[0]
     .classList.add("dropdownEnabled");
+  let editText = document.createElement("h3");
+  editText.innerHTML = "Edit Mode Enabled!";
+  editText.classList.add("editText");
+  target.getElementsByClassName("text")[0].appendChild(editText);
 }
 // disable edit
 function disableEdit(id) {
@@ -102,6 +106,7 @@ function disableEdit(id) {
   target
     .getElementsByClassName("priorityel")[0]
     .classList.remove("dropdownEnabled");
+  target.getElementsByClassName("editText")[0].remove();
 }
 // dropdown checks for if edit is enabled;
 function drdown(id) {
@@ -178,11 +183,11 @@ submit.addEventListener("click", (event) => {
   let text = document.createElement("div");
   editbutton.classList.add("edit");
   editbutton.setAttribute("onclick", "edit(" + uid + ")");
-  editbutton.innerHTML = "E";
+  editbutton.innerHTML = "✎";
   disablebutton.classList.add("unedit");
   disablebutton.classList.add("hidden");
   disablebutton.setAttribute("onclick", "disableEdit(" + uid + ")");
-  disablebutton.innerHTML = "D";
+  disablebutton.innerHTML = "✓";
   buttons.classList.add("buttonlist");
   text.classList.add("text");
   donebutton.innerHTML = "✓";

@@ -137,26 +137,77 @@
 //   return stuff;
 // }
 // console.log(lowtohigh(arr));
-var date = "2023-01-01";
-var added = "372";
-function dateAdd(date, add) {
-  let shit = date.split("-");
-  let day = parseInt(shit[2]);
-  let month = parseInt(shit[1]);
-  let year = parseInt(shit[0]);
-  day += parseInt(add);
-  if (day > 31) {
-    do {
-      day -= 31;
-      month += 1;
-    } while (day > 31);
-  }
-  if (month > 12) {
-    do {
-      month -= 12;
-      year += 1;
-    } while (month > 12);
-  }
-  return year + "-" + month + "-" + day;
-}
-console.log(dateAdd(date, added));
+// var date = "2023-11-1";
+// var added = "9000";
+// function dateAdd(date, add) {
+//   let shit = date.split("-");
+//   let day = parseInt(shit[2]);
+//   let month = parseInt(shit[1]);
+//   let year = parseInt(shit[0]);
+//   day += parseInt(add);
+//   if (day > 31) {
+//     do {
+//       switch (month) {
+//         case 1:
+//           day -= 30;
+//           month += 1;
+//           break;
+//         case 2:
+//           day -= 29;
+//           month += 1;
+//           break;
+//         case 3:
+//           day -= 31;
+//           month += 1;
+//           break;
+//         case 4:
+//           day -= 30;
+//           month += 1;
+//           break;
+//         case 5:
+//           day -= 31;
+//           month += 1;
+//           break;
+//         case 6:
+//           day -= 30;
+//           month += 1;
+//           break;
+//         case 7:
+//           day -= 31;
+//           month += 1;
+//           break;
+//         case 8:
+//           day -= 31;
+//           month += 1;
+//           break;
+//         case 9:
+//           day -= 30;
+//           month += 1;
+//           break;
+//         case 10:
+//           day -= 31;
+//           month += 1;
+//           break;
+//         case 11:
+//           day -= 30;
+//           month += 1;
+//           break;
+//         case 12:
+//           day -= 31;
+//           month += 1;
+//           break;
+//         default:
+//           console.log("Case Error.");
+//           break;
+//       }
+//       if (month > 12) {
+//         do {
+//           month -= 12;
+//           year += 1;
+//         } while (month > 12);
+//       }
+//     } while (day > 31);
+//   }
+//   return year + "-" + month + "-" + day;
+// }
+// console.log(dateAdd(date, added));
