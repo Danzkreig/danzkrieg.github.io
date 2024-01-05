@@ -1,18 +1,21 @@
 const container = document.getElementsByClassName("container")[0];
 const ball = container.getElementsByClassName("ball")[0];
-
+var awful = 30;
+var score = 0;
+ball.style.width = 30 + "px";
+ball.style.height = 30 + "px";
 function ballCreation(count) {
   var width = document.body.clientWidth;
   for (i = 0; i < count; i++) {
     let ball = document.createElement("div");
     let random = Math.floor(Math.random() * width + 1);
     ball.classList.add("edible");
-    ball.style.top = Math.floor(Math.random() * 50) + "px";
+    ball.style.top = Math.floor(Math.random() * 900) + "px";
     ball.style.left = random + "px";
     container.appendChild(ball);
   }
 }
-var jet = 1;
+var jet = 5;
 ballCreation(jet);
 function edibleMove() {
   var height = document.body.clientHeight;
@@ -25,7 +28,7 @@ function edibleMove() {
       }
     }
   } else {
-    alert("Congratz. Round " + jet + " Completed.");
+    alert("Congratz. Round " + jet + " Completed. Your score is " + score);
     jet++;
     ballCreation(jet);
   }
@@ -55,8 +58,8 @@ onmousemove = (e) => {
   let x = e.clientX;
   let y = e.clientY;
   function moveBall(x, y) {
-    ball.style.top = y - 13 + "px";
-    ball.style.left = x - 13 + "px";
+    ball.style.top = y + 17 - awful + "px";
+    ball.style.left = x + 17 - awful + "px";
   }
   moveBall(x, y);
   for (i = 0; i < container.getElementsByClassName("edible").length; i++) {
@@ -65,6 +68,24 @@ onmousemove = (e) => {
       true
     ) {
       container.getElementsByClassName("edible")[i].remove();
+      ball.style.width = awful + "px";
+      ball.style.height = awful + "px";
+      awful++;
+      score++;
     }
   }
 };
+setInterval(() => {
+  for (i = 0; i < container.getElementsByClassName("edible").length; i++) {
+    if (
+      checkCollision(ball, container.getElementsByClassName("edible")[i]) ===
+      true
+    ) {
+      container.getElementsByClassName("edible")[i].remove();
+      ball.style.width = awful + "px";
+      ball.style.height = awful + "px";
+      awful++;
+      score++;
+    }
+  }
+}, 10);
