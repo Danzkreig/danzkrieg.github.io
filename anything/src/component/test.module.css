@@ -1,16 +1,17 @@
 .main {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .skul {
   z-index: 1;
   cursor: pointer;
-  position: absolute;
   left: 242px;
   top: 14.5px;
 }
 .cricle {
-  z-index: -2;
+  z-index: 1;
+  min-width: 300px;
 }
 #rotatingText {
   animation-name: rotate-circle;
