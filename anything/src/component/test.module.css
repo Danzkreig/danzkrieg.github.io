@@ -1,0 +1,31 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+.skul {
+  z-index: 1;
+  cursor: pointer;
+  position: absolute;
+  left: 242px;
+  top: 14.5px;
+}
+.cricle {
+  z-index: -2;
+}
+#rotatingText {
+  animation-name: rotate-circle;
+  animation-duration: 50s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate-circle {
+  to {
+    transform: rotate(1turn);
+  }
+}
+.white {
+  color: green;
+  display: flex;
+  align-items: center;
+}
