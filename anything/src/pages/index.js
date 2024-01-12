@@ -1,4 +1,5 @@
 import { addRequestMeta } from "next/dist/server/request-meta";
+import styles from "@/component/index.module.css";
 const db = [
   {
     id: 553,
@@ -324,7 +325,7 @@ const Profile = () => {
     var gender = db[i].gender;
     var email = db[i].email;
     var detestable = (
-      <div class="container">
+      <div className={styles.container}>
         <img src="https://yellow-face.com/images/gook.jpg" alt="gook" />
         <div class="info">
           <div class="name">
@@ -342,8 +343,10 @@ const Profile = () => {
 };
 export default function Shize() {
   return (
-    <div class="main">
-      <Profile />
+    <div className={styles.body}>
+      <div className={styles.main}>
+        <Profile />
+      </div>
     </div>
   );
 }

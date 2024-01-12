@@ -1,0 +1,40 @@
+.body {
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+}
+.button {
+  width: 50px;
+  height: 50px;
+  background-color: gainsboro;
+  color: black;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 0fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+.display {
+  width: fit-content;
+  height: fit-content;
+  min-width: 196px;
+  min-height: 50px;
+  background-color: gainsboro;
+  color: black;
+  display: flex;
+  align-items: center;
+  border: 2px;
+  border-style: solid;
+  border-color: grey;
+}
+.display h4 {
+  margin-left: 5px;
+  text-wrap: wrap;
+}
