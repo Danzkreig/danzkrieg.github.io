@@ -1,5 +1,6 @@
 import { addRequestMeta } from "next/dist/server/request-meta";
 import styles from "@/component/index.module.css";
+import GookGee from "@/component/proptest";
 const db = [
   {
     id: 553,
@@ -316,37 +317,27 @@ const db = [
     },
   },
 ];
-const Profile = () => {
-  var i = 0;
-  const vittu = [];
-  do {
-    var name = db[i].first_name + " " + db[i].last_name;
-    var emplyoment = db[i].employment.title;
-    var gender = db[i].gender;
-    var email = db[i].email;
-    var detestable = (
-      <div className={styles.container}>
-        <img src="https://yellow-face.com/images/gook.jpg" alt="gook" />
-        <div class="info">
-          <div class="name">
-            {name}, {gender}
-          </div>
-          <div class="misc">{emplyoment}</div>
-          <div>Contact at {email}</div>
-        </div>
+function App() {
+  const fez = [];
+  const result = () => {
+    return fez;
+  };
+  db.forEach((el) => {
+    fez.push(
+      <div>
+        <GookGee
+          name={el.first_name + " " + el.last_name}
+          email={el.email}
+          employment={el.employment.title}
+          gender={el.gender}
+        />
       </div>
     );
-    vittu.push(detestable);
-    i++;
-  } while (i < db.length);
-  return vittu;
-};
-export default function Shize() {
+  });
   return (
     <div className={styles.body}>
-      <div className={styles.main}>
-        <Profile />
-      </div>
+      <div className={styles.main}>{result()}</div>
     </div>
   );
 }
+export default App;

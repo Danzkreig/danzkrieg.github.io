@@ -3,7 +3,7 @@ import styles from "../component/calculator.module.css";
 import { calculate } from "@/component/test";
 const db = [
   "C",
-  "≠",
+  "DEL",
   "%",
   "/",
   "7",
@@ -26,6 +26,10 @@ const db = [
 var num1 = 0;
 var sign = "";
 var num2 = 0;
+var undotemp = "";
+var undonum2 = 0;
+var undonum1 = 0;
+var undosign = "";
 const button = () => {
   const result = [];
   db.forEach((thing) =>
@@ -34,6 +38,7 @@ const button = () => {
         className={styles.button}
         onClick={() => {
           if (Number.isInteger(parseInt(thing)) === true && sign !== "") {
+            undotemp = document.getElementById("dis").innerText;
             document.getElementById("dis").innerText += thing + " ";
             num2++;
           } else if (thing === "C") {
@@ -42,9 +47,12 @@ const button = () => {
             sign = "";
             num2 = 0;
           } else if (thing === "=") {
-            let dong = document.getElementById("dis").innerText;
-            num1 = dong.split(" ")[0];
-            let javier = dong.split(" ")[1];
+            undotemp = document.getElementById("dis").innerText;
+            undonum1 = undotemp.split(" ")[0];
+            undosign = sign;
+            num1 = undotemp.split(" ")[0];
+            let javier = undotemp.split(" ")[1];
+            undonum2 = javier.match(/(\d+)/)[1];
             if (num2 > 0) {
               num2 = javier.match(/(\d+)/)[1];
             }
@@ -58,20 +66,33 @@ const button = () => {
               num2 = 0;
             }
           } else if (thing === "-" && sign === "") {
+            undotemp = document.getElementById("dis").innerText;
             document.getElementById("dis").innerText += " - ";
             sign = "minus";
           } else if (thing === "+" && sign === "") {
+            undotemp = document.getElementById("dis").innerText;
             document.getElementById("dis").innerText += " + ";
             sign = "plus";
           } else if (thing === "/" && sign === "") {
+            undotemp = document.getElementById("dis").innerText;
             document.getElementById("dis").innerText += " / ";
             sign = "divide";
           } else if (thing === "X" && sign === "") {
+            undotemp = document.getElementById("dis").innerText;
             document.getElementById("dis").innerText += " * ";
             sign = "times";
           } else if (thing === "%" && sign === "") {
+            undotemp = document.getElementById("dis").innerText;
             document.getElementById("dis").innerText += " % ";
             sign = "percent";
+          } else if (thing === "UNDO" && undotemp !== "") {
+            document.getElementById("dis").innerHTML = undotemp;
+            num2 = undonum2;
+            num1 = undonum1;
+            sign = undosign;
+          } else if (thing === "DEL") {
+            let h = document.getElementById("dis").innerText;
+            document.getElementById("dis").innerText = h.slice(0, -1);
           } else if (Number.isInteger(parseInt(thing)) === true) {
             document.getElementById("dis").innerText += thing + " ";
             num1++;

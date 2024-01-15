@@ -1,6 +1,6 @@
 export const calculate = (sign, number, number2) => {
   if (sign === "plus") {
-    return number + number2;
+    return parseInt(number) + parseInt(number2);
   } else if (sign === "minus") {
     return number - number2;
   } else if (sign === "times") {

@@ -1,5 +1,4 @@
 import { addRequestMeta } from "next/dist/server/request-meta";
-import { yabdab, dabdab } from "../component/test";
 import styles from "../component/test.module.css";
 import Image from "next/image";
 const db = [
@@ -21,7 +20,7 @@ const db = [
     fill: "transparent",
   },
   {
-    info: `Vladimir Vladimirovich Putin[c] (born 7 October 1952) is a Russian politician and former intelligence officer who is the President of Russia. Putin has held continuous positions as president or prime minister since 1999: as prime minister from 1999 to 2000 and from 2008 to 2012, and as president from 2000 to 2008 and since 2012. He is the longest-serving Russian or Soviet leader since Joseph Stalin.`,
+    info: `Vladimir Vladimirovich Putin (born 7 October 1952) is a Russian politician and former intelligence officer who is the President of Russia. Putin has held continuous positions as president or prime minister since 1999: as prime minister from 1999 to 2000 and from 2008 to 2012, and as president from 2000 to 2008 and since 2012. He is the longest-serving Russian or Soviet leader since Joseph Stalin.`,
     id: "/favicon.ico",
     fill: "transparent",
   },
