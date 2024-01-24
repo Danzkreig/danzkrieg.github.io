@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export const About = () => {
   return (
-    <div className="flex flex-col gap-16 mt-32">
+    <div className="flex flex-col gap-16 mt-32 dark:bg-black">
       <div className="flex place-content-center">
-        <h1 className="bg-gray-200 w-24 text-center rounded">About Me</h1>
+        <h1 className="bg-gray-200 w-24 text-center rounded ">About Me</h1>
       </div>
       <div className="flex flex-row gap-x-52 ml-[400px]">
         <Image
@@ -14,8 +14,8 @@ export const About = () => {
           className="object-contain mb-64 shadow-lg"
         />
         <div className="flex flex-col max-w-[600px] gap-10">
-          <h1 className="text-5xl">Who am I?</h1>
-          <h1 className="text-gray-800">
+          <h1 className="text-5xl dark:text-white">Who am I?</h1>
+          <h1 className="text-gray-800 dark:text-gray-100">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
             venenatis consequat urna, vitae interdum nisl. Cras porta ornare
             lacus, eget eleifend nisl malesuada eget. Curabitur porttitor ac

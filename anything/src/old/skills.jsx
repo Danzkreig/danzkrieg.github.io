@@ -22,9 +22,9 @@ export const Skills = () => {
   let fuck = [];
   skills.forEach((el) =>
     fuck.push(
-      <div className="flex flex-col place-self-center">
+      <div className="flex flex-col place-self-center dark:bg-black">
         <Image src={el.icon} width={100} height={100} />
-        <h3 className="place-self-center">{el.name}</h3>
+        <h3 className="place-self-center dark:text-white">{el.name}</h3>
       </div>
     )
   );
@@ -33,7 +33,7 @@ export const Skills = () => {
       <div className="flex place-content-center">
         <h1 className="bg-gray-200 w-24 text-center rounded">About Me</h1>
       </div>
-      <div className="text-center">Fuck, Fuck, Fuck, Fuck.</div>
+      <div className="text-center dark:text-white">Fuck, Fuck, Fuck, Fuck.</div>
       <div className="grid grid-cols-8">{fuck}</div>
     </div>
   );
