@@ -1,5 +1,19 @@
+import { useEffect, useState } from "react";
 var dark = false;
 export const NavBar = () => {
+  const [DarkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    if (localStorage.getItem("dark") === false) {
+      localStorage.setItem("dark", true);
+      root.setAttribute("class", "white");
+      console.log("fuck");
+      DarkMode = true;
+    } else {
+      localStorage.setItem("dark", false);
+      root.setAttribute("class", "dark");
+      DarkMode = false;
+    }
+  });
   return (
     <div className="flex mt-2 dark:bg-black">
       <div className="text-5xl ml-60 dark:text-white">𓂀</div>
@@ -12,19 +26,9 @@ export const NavBar = () => {
         <button className="dark:text-white">Arbitrate</button>
         <button className="dark:text-white">Kopfwäsche</button>
         <button
+          onLoad={() => console.log("Working")}
           onClick={() => {
-            let root = document.documentElement;
-            if (typeof window !== "undefined") {
-              if (dark === true) {
-                root.setAttribute("class", "white");
-                dark = false;
-                console.log("dark is no more");
-              } else {
-                root.setAttribute("class", "dark");
-                dark = true;
-                console.log("dark enabled");
-              }
-            }
+            setDarkMode();
           }}
           className="dark:text-white"
         >

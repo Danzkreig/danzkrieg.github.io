@@ -1,15 +1,25 @@
-var dark = false;
+var lark = false;
 var jfk = 0;
 export const Navbar = () => {
+  if (typeof window !== "undefined") {
+    lark = localStorage.getItem("darkMode");
+    console.log(lark);
+    if (lark === "true") {
+      document.documentElement.classList.add("dark");
+      console.log(lark);
+    } else {
+      document.documentElement.classList.add("white");
+      console.log(lark);
+    }
+  }
   return (
     <div
-      className="flex flex-row justify-evenly xl:h-12 text-center dark:text-white dark:bg-black h-12 overflow-hidden"
+      className="flex flex-row justify-center gap-24 xl:h-12 text-center dark:text-white dark:bg-black h-12 overflow-hidden xl:ml-24 ml-4 mr-4"
       id="nav-over"
     >
       <div className="flex justify-center items-center">
         <pre className="whitespace-break-spaces">Rotten 🧠.</pre>
       </div>
-
       <div
         className="xl:flex xl:flex-row xl:gap-5 xl:opacity-100 xl:translate-x-[0px] translate-x-[1000px] flex flex-col overflow-hidden w-fit"
         id="nav-menu"
@@ -18,17 +28,18 @@ export const Navbar = () => {
         <button>Source.</button>
         <button
           onClick={() => {
-            let root = document.documentElement;
-            if (typeof window !== "undefined") {
-              if (dark === true) {
-                root.setAttribute("class", "white");
-                dark = false;
-                console.log("dark is no more");
-              } else {
-                root.setAttribute("class", "dark");
-                dark = true;
-                console.log("dark enabled");
-              }
+            if (lark === "true") {
+              console.log("lark was true");
+              console.log(lark);
+              localStorage.setItem("darkMode", "false");
+              document.documentElement.classList.replace("dark", "white");
+              lark = "false";
+            } else {
+              console.log("lark was false ");
+              console.log(lark);
+              localStorage.setItem("darkMode", "true");
+              document.documentElement.classList.replace("white", "dark");
+              lark = "true";
             }
           }}
         >

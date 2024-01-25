@@ -30,7 +30,7 @@ export const Intro = () => {
   return (
     <div className="flex flex-col xl:flex-row justify-center items-center dark:bg-black w-screen xl:mt-10">
       <div className="h-fit">
-        <div className="flex flex-col gap-5 xl:flex-row-reverse">
+        <div className="flex flex-col gap-5 xl:flex-row-reverse xl:gap-24">
           <h1
             className="whitespace-pre dark:text-white"
             dangerouslySetInnerHTML={wrappedASCII}
