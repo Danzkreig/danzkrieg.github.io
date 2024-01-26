@@ -1,19 +1,16 @@
-import { useEffect, useState } from "react";
-var dark = false;
+var lark = false;
 export const NavBar = () => {
-  const [DarkMode, setDarkMode] = useState(false);
-  useEffect(() => {
-    if (localStorage.getItem("dark") === false) {
-      localStorage.setItem("dark", true);
-      root.setAttribute("class", "white");
-      console.log("fuck");
-      DarkMode = true;
+  if (typeof window !== "undefined") {
+    lark = localStorage.getItem("darkMode");
+    console.log(lark);
+    if (lark === "true") {
+      document.documentElement.classList.add("dark");
+      console.log(lark);
     } else {
-      localStorage.setItem("dark", false);
-      root.setAttribute("class", "dark");
-      DarkMode = false;
+      document.documentElement.classList.add("white");
+      console.log(lark);
     }
-  });
+  }
   return (
     <div className="flex mt-2 dark:bg-black">
       <div className="text-5xl ml-60 dark:text-white">𓂀</div>
@@ -26,9 +23,20 @@ export const NavBar = () => {
         <button className="dark:text-white">Arbitrate</button>
         <button className="dark:text-white">Kopfwäsche</button>
         <button
-          onLoad={() => console.log("Working")}
           onClick={() => {
-            setDarkMode();
+            if (lark === "true") {
+              console.log("lark was true");
+              console.log(lark);
+              localStorage.setItem("darkMode", "false");
+              document.documentElement.classList.replace("dark", "white");
+              lark = "false";
+            } else {
+              console.log("lark was false ");
+              console.log(lark);
+              localStorage.setItem("darkMode", "true");
+              document.documentElement.classList.replace("white", "dark");
+              lark = "true";
+            }
           }}
           className="dark:text-white"
         >

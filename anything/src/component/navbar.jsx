@@ -1,6 +1,8 @@
+import React, { useState, useEffect } from "react";
 var lark = false;
 var jfk = 0;
-export const Navbar = () => {
+export const Navbar = ({ title }) => {
+  const deacon = title.split("");
   if (typeof window !== "undefined") {
     lark = localStorage.getItem("darkMode");
     console.log(lark);
@@ -18,7 +20,9 @@ export const Navbar = () => {
       id="nav-over"
     >
       <div className="flex justify-center items-center">
-        <pre className="whitespace-break-spaces">Rotten 🧠.</pre>
+        <pre className="whitespace-break-spaces">
+          Rotten <span className="animate-pulse">🧠</span>.
+        </pre>
       </div>
       <div
         className="xl:flex xl:flex-row xl:gap-5 xl:opacity-100 xl:translate-x-[0px] translate-x-[1000px] flex flex-col overflow-hidden w-fit"

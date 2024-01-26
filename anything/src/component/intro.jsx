@@ -32,10 +32,10 @@ export const Intro = () => {
       <div className="h-fit">
         <div className="flex flex-col gap-5 xl:flex-row-reverse xl:gap-24">
           <h1
-            className="whitespace-pre dark:text-white"
+            className="whitespace-pre dark:text-white text-xs md:text-base text-center"
             dangerouslySetInnerHTML={wrappedASCII}
           ></h1>
-          <div className="xl:flex xl:flex-col xl:items-center xl:justify-center">
+          <div className="xl:flex xl:flex-col xl:items-center xl:justify-center flex-col items-center flex">
             <h1 className="text-3xl dark:text-white">I am Fester.</h1>
             <p className="text-xl dark:text-white">
               I am a Front-End web developer in training.
