@@ -1,9 +1,9 @@
-import { Grid } from "@/component/minesweeper";
+import { Navbar } from "@/component/navbar";
 
 export default function Rat() {
   return (
     <div>
-      <Grid />
+      <Navbar />
     </div>
   );
 }

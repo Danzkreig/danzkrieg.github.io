@@ -1,77 +1,47 @@
-import React, { useState, useEffect } from "react";
-var lark = false;
-var jfk = 0;
-export const Navbar = ({ title }) => {
-  const deacon = title.split("");
-  if (typeof window !== "undefined") {
-    lark = localStorage.getItem("darkMode");
-    console.log(lark);
-    if (lark === "true") {
-      document.documentElement.classList.add("dark");
-      console.log(lark);
-    } else {
-      document.documentElement.classList.add("white");
-      console.log(lark);
-    }
-  }
+export const Navbar = () => {
   return (
-    <div
-      className="flex flex-row justify-center gap-24 xl:h-12 text-center dark:text-white dark:bg-black h-12 overflow-hidden xl:ml-24 ml-4 mr-4"
-      id="nav-over"
-    >
-      <div className="flex justify-center items-center">
-        <pre className="whitespace-break-spaces">
-          Rotten <span className="animate-pulse">🧠</span>.
-        </pre>
-      </div>
-      <div
-        className="xl:flex xl:flex-row xl:gap-5 xl:opacity-100 xl:translate-x-[0px] translate-x-[1000px] flex flex-col overflow-hidden w-fit"
-        id="nav-menu"
-      >
-        <button>Home.</button>
-        <button>Source.</button>
+    <div className="flex items-center w-screen h-8 justify-between mt-2 ml-10 xl:justify-around xl:ml-0">
+      <h1 className="text-2xl">&lt;GG /&gt;</h1>
+      <div>
+        <button className="mr-3 hidden xl:inline">About</button>
+        <button className="mr-3 hidden xl:inline">Work</button>
+        <button className="mr-3 hidden xl:inline">Testimonials</button>
+        <button className="mr-3 hidden xl:inline">Contact</button>
+        <button id="dakr" className="mr-3 hidden xl:inline">
+          ☼
+        </button>
+        <button className="p-1 bg-black text-white rounded-lg pr-3 pl-3 hidden xl:inline">
+          Download CV
+        </button>
         <button
+          className="xl:hidden mr-10 text-3xl"
           onClick={() => {
-            if (lark === "true") {
-              console.log("lark was true");
-              console.log(lark);
-              localStorage.setItem("darkMode", "false");
-              document.documentElement.classList.replace("dark", "white");
-              lark = "false";
+            if ((isOpen = true)) {
+              isOpen = false;
             } else {
-              console.log("lark was false ");
-              console.log(lark);
-              localStorage.setItem("darkMode", "true");
-              document.documentElement.classList.replace("white", "dark");
-              lark = "true";
+              isOpen = true;
             }
           }}
         >
-          Dark Mode.
+          ≡
         </button>
-        <button>Download CV</button>
       </div>
-      <button
-        className="mr-[10px] xl:opacity-0"
-        onClick={() => {
-          if (jfk === 0) {
-            document
-              .getElementById("nav-menu")
-              .classList.remove("translate-x-[1000px]");
-            document.getElementById("nav-over").classList.add("h-fit");
-            jfk++;
-          } else {
-            document
-              .getElementById("nav-menu")
-              .classList.add("translate-x-[1000px]");
-            document.getElementById("nav-over").classList.remove("h-fit");
-
-            jfk--;
-          }
-        }}
+      <div
+        className="${
+          isOpen ? translate-x-0 : -translate-x-full} ${
+          isOpen ? hidden : hidden}"
       >
-        ≡
-      </button>
+        <button className="mr-3 hidden xl:inline">About</button>
+        <button className="mr-3 hidden xl:inline">Work</button>
+        <button className="mr-3 hidden xl:inline">Testimonials</button>
+        <button className="mr-3 hidden xl:inline">Contact</button>
+        <button id="dakr" className="mr-3 hidden xl:inline">
+          ☼
+        </button>
+        <button className="p-1 bg-black text-white rounded-lg pr-3 pl-3 hidden xl:inline">
+          Download CV
+        </button>
+      </div>
     </div>
   );
 };

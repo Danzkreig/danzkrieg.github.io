@@ -1,8 +1,8 @@
-import { Navbar } from "@/component/navbar";
-import { Intro } from "@/component/intro";
-import { Info } from "@/component/Info";
-import { Contact } from "@/component/ContactInfo";
-import { Project } from "@/component/projects";
+import { Navbar } from "@/old/navbar";
+import { Intro } from "@/old/intro";
+import { Info } from "@/old/Info";
+import { Contact } from "@/old/ContactInfo";
+import { Project } from "@/old/projects";
 import Head from "next/head";
 export default function fart() {
   return (

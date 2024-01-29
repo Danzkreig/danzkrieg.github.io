@@ -1,4 +1,3 @@
-import { addRequestMeta } from "next/dist/server/request-meta";
 import React, { useState, useEffect } from "react";
 const db = [
   "shame",
@@ -314,7 +313,7 @@ function randomWord(num) {
   } while (i < num);
   return z.join(" ");
 }
-export default function yeouch() {
+export default function Yeouch() {
   const [word, setWord] = useState("");
   useEffect(() => {
     const interval = setInterval(() => {
