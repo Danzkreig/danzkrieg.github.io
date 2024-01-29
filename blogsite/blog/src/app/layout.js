@@ -6,18 +6,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <div>
+      <div className="flex flex-row justify-normal">
         <h1>
           Meta<span>Bog</span>
         </h1>{" "}
-        <div>
+        <div className="flex flex-row">
           <button>Home</button>
           <button>Blog</button>
           <button>Contact</button>
         </div>
-        <div>
+        <div className="flex flex-row">
           <textarea></textarea>
-          <button></button>
+          <button>P</button>
         </div>
       </div>
       <body>{children}</body>
