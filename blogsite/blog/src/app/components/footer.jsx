@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const Footer = () => {
   return (
-    <div className="flex flex-col absolute bottom-0 w-screen h-1/3 bg-gray-200">
+    <div className="flex flex-col bottom-0 w-screen h-1/3 bg-gray-200">
       <div className=" flex justify-around pt-10 flex-row ">
         <div className="w-1/6">
           <h1 className="font-bold text-xl mb-4">About</h1>
