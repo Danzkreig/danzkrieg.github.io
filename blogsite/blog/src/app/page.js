@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 export default function Raskas() {
   const [article, SetArticles] = useState([]);
-  const [filtered, SetFiltered] = useState(localStorage.getItem("filter"));
+  const [filtered, SetFiltered] = useState("all");
   const [pagenum, SetNum] = useState(9);
   var pianist = 1;
   async function getData() {
@@ -18,9 +18,7 @@ export default function Raskas() {
       .then((response) => response.json())
       .then((data) => SetArticles(data));
   }
-  useEffect(() => {
-    getData();
-  }, [pagenum, filtered]);
+  useEffect(() => {}, [pagenum, filtered]);
   const [gallery, SetGallery] = useState([]);
   const [nextgal, SetGal] = useState(1);
   const [trending, SetTrend] = useState([]);
