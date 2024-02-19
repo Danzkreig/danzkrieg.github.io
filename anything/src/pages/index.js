@@ -1,6 +1,6 @@
 import { addRequestMeta } from "next/dist/server/request-meta";
 import styles from "@/component/index.module.css";
-import GookGee from "@/component/proptest";
+import GookGee from "@/old/proptest";
 const db = [
   {
     id: 553,

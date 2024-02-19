@@ -1,4 +1,4 @@
-import Hello from "@/component/proptest";
+import Hello from "@/old/proptest";
 import { addRequestMeta } from "next/dist/server/request-meta";
 function App() {
   return (
