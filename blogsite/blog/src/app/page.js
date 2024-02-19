@@ -23,7 +23,7 @@ export default function Raskas() {
   }, [pagenum, filtered]);
   const [gallery, SetGallery] = useState([]);
   const [nextgal, SetGal] = useState(1);
-  const [trending, SetTrend] = useState(3);
+  const [trending, SetTrend] = useState([]);
 
   async function getBata() {
     const geschutz = await fetch(
@@ -33,9 +33,7 @@ export default function Raskas() {
       .then((data) => SetGallery(data));
   }
   async function nichii() {
-    const labrat = await fetch(
-      "https://dev.to/api/articles?page=" + trending + "&per_page=1"
-    )
+    const labrat = await fetch("https://dev.to/api/articles?page=1&per_page=3")
       .then((response) => response.json())
       .then((data) => SetTrend(data));
   }
@@ -44,7 +42,7 @@ export default function Raskas() {
   }, [nextgal]);
   useEffect(() => {
     nichii();
-  }, [nextgal]);
+  }, [SetTrend]);
   return (
     <div>
       <div>
@@ -88,7 +86,12 @@ export default function Raskas() {
           );
         })}{" "}
       </div>
-      <div>{gallery.map((article) => {})}</div>
+      <div>
+        <h1>Trending</h1>
+        {trending.map((article) => {
+          return <div></div>;
+        })}
+      </div>
       <div
         className="w-screen mr-auto ml-auto xl:w-3/4"
         onLoad={() => {
