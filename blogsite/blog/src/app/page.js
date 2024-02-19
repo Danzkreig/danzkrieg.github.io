@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 export default function Raskas() {
   const [article, SetArticles] = useState([]);
-  const [filtered, SetFiltered] = useState("all");
+  const [filtered, SetFiltered] = useState("");
   const [pagenum, SetNum] = useState(9);
   var pianist = 1;
   async function getData() {
@@ -18,10 +18,12 @@ export default function Raskas() {
       .then((response) => response.json())
       .then((data) => SetArticles(data));
   }
-  useEffect(() => {}, [pagenum, filtered]);
+  useEffect(() => {
+    getData();
+  }, [pagenum, filtered]);
   const [gallery, SetGallery] = useState([]);
   const [nextgal, SetGal] = useState(1);
-  const [trending, SetTrend] = useState([]);
+  const [trending, SetTrend] = useState(3);
 
   async function getBata() {
     const geschutz = await fetch(
@@ -31,7 +33,9 @@ export default function Raskas() {
       .then((data) => SetGallery(data));
   }
   async function nichii() {
-    const labrat = await fetch("https://dev.to/api/articles?page=1&per_page=3")
+    const labrat = await fetch(
+      "https://dev.to/api/articles?page=" + trending + "&per_page=1"
+    )
       .then((response) => response.json())
       .then((data) => SetTrend(data));
   }
@@ -40,7 +44,7 @@ export default function Raskas() {
   }, [nextgal]);
   useEffect(() => {
     nichii();
-  }, [SetTrend]);
+  }, [nextgal]);
   return (
     <div>
       <div>
@@ -84,12 +88,7 @@ export default function Raskas() {
           );
         })}{" "}
       </div>
-      <div>
-        <h1>Trending</h1>
-        {trending.map((article) => {
-          return <div></div>;
-        })}
-      </div>
+      <div></div>
       <div
         className="w-screen mr-auto ml-auto xl:w-3/4"
         onLoad={() => {
