@@ -17,9 +17,15 @@ export const Navbar = () => {
         </h1>
       </div>
       <div className="gap-10">
-        <button className="mr-5">Home</button>
-        <button className="mr-5">Blog</button>
-        <button className="mr-5">Contact</button>
+        <a href="http://localhost:3000/">
+          <button className="mr-5">Home</button>
+        </a>
+        <a href="http://localhost:3000/blog">
+          <button className="mr-5">Blog</button>
+        </a>
+        <a href="http://localhost:3000/contact">
+          <button className="mr-5">Contact</button>
+        </a>
       </div>
       <div className="flex items-center justify-center">
         <textarea

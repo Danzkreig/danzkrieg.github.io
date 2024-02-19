@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import ImageWithFallback from "./components/fallbackImage";
 import { useState, useEffect } from "react";
 export default function Raskas() {
   const [article, SetArticles] = useState([]);
@@ -24,6 +23,8 @@ export default function Raskas() {
   }, [pagenum, filtered]);
   const [gallery, SetGallery] = useState([]);
   const [nextgal, SetGal] = useState(1);
+  const [trending, SetTrend] = useState(3);
+
   async function getBata() {
     const geschutz = await fetch(
       "https://dev.to/api/articles?page=" + nextgal + "&per_page=1"
@@ -31,60 +32,63 @@ export default function Raskas() {
       .then((response) => response.json())
       .then((data) => SetGallery(data));
   }
+  async function nichii() {
+    const labrat = await fetch(
+      "https://dev.to/api/articles?page=" + trending + "&per_page=1"
+    )
+      .then((response) => response.json())
+      .then((data) => SetTrend(data));
+  }
   useEffect(() => {
     getBata();
+  }, [nextgal]);
+  useEffect(() => {
+    nichii();
   }, [nextgal]);
   return (
     <div>
       <div>
-        <div className="flex justify-center items-center">
-          {gallery.map((article) => {
-            return (
-              <div className="">
-                {article.cover_image && (
-                  <ImageWithFallback
-                    src={article.social_image}
-                    alt=""
-                    height={800}
-                    width={800}
-                    className="rounded-xl"
-                  />
-                )}
-                <div className="bg-white w-96 h-32  z-3 relative rounded-lg bottom-[140px] left-3 justify-center flex flex-col">
-                  <h1 className="relative left-6 mb-6  text-xl">
-                    {article.title}
-                  </h1>
-                  <h1 className="relative left-6 text-sm text-gray-400">
-                    {article.created_at}
-                  </h1>
-                </div>
-                <div>
-                  <button
-                    className="mr-3 border-2 border-gray-300 w-8 h-8 rounded"
-                    onClick={() => {
-                      if (nextgal === 1) {
-                        console.log("nope");
-                      } else {
-                        SetGal((gal) => (gal -= 1));
-                      }
-                    }}
-                  >
-                    &lt;
-                  </button>
-                  <button
-                    className="ml-3 border-2 border-gray-300 w-8 h-8 rounded"
-                    onClick={() => {
-                      SetGal((gal) => (gal += 1));
-                    }}
-                  >
-                    &gt;
-                  </button>
-                </div>
+        {gallery.map((article) => {
+          return (
+            <div className="relative flex items-center justify-center transition-all">
+              <Image
+                src={article.social_image}
+                width={900}
+                height={300}
+                className="mt-20 mb-20 rounded-xl cursor-pointer"
+              />
+              <div className="absolute md:mr-[320px] top-[380px] bg-white rounded-md p-8 pr-24 pl-8 flex flex-col break-words max-w-[600px] cursor-pointer">
+                <div className="bg-blue-500 p-2 rounded">{article.tags}</div>
+                <h1 className="text-xl">{article.title}</h1>
+                <h3 className="text-sm text-gray-500 mt-4">
+                  {article.created_at}
+                </h3>
               </div>
-            );
-          })}
-        </div>
+              <div>
+                <button
+                  className="p-2 bg-black text-white"
+                  onClick={() => {
+                    if (gallery != 1) {
+                      SetGal((gal) => gal - 1);
+                    }
+                  }}
+                >
+                  &lt;
+                </button>
+                <button
+                  className="p-2 bg-black text-white"
+                  onClick={() => {
+                    SetGal((gal) => gal + 1);
+                  }}
+                >
+                  &gt;
+                </button>
+              </div>
+            </div>
+          );
+        })}{" "}
       </div>
+      <div>{gallery.map((article) => {})}</div>
       <div
         className="w-screen mr-auto ml-auto xl:w-3/4"
         onLoad={() => {
