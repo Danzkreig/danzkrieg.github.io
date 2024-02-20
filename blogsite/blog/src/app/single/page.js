@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { notFound, useSearchParams } from "next/navigation";
 
 export default function single() {
   const searchParams = useSearchParams();
@@ -16,7 +16,9 @@ export default function single() {
   useEffect(() => {
     getBata();
   }, [SetArticle]);
-  if (search !== null) {
+  if (!search) {
+    notFound();
+  } else {
     return (
       <div>
         <div className="flex flex-col justify-center items-center relative w-5/6 mr-auto ml-auto text-center">
@@ -39,9 +41,5 @@ export default function single() {
         </div>
       </div>
     );
-  } else {
-    <div>
-      <h1>Error 404</h1>
-    </div>;
   }
 }
