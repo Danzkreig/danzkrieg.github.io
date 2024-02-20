@@ -16,9 +16,15 @@ export const Footer = () => {
           <h1>Phone&nbsp;:&nbsp;(495)&nbsp;224-22-22</h1>
         </div>
         <div className="flex  flex-col gap-2">
-          <h1>Home</h1>
-          <h1>Blog</h1>
-          <h1>Contact</h1>
+          <a href="http://localhost:3000/">
+            <h1>Home</h1>
+          </a>
+          <a href="http://localhost:3000/blog">
+            <h1>Blog</h1>
+          </a>
+          <a href="http://localhost:3000/contact">
+            <h1>Contact</h1>
+          </a>
         </div>
         <div className="flex flex-row gap-6">
           <svg

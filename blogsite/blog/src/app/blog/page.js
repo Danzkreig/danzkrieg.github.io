@@ -25,29 +25,33 @@ export default function Blog() {
       <div className="grid justify-center items-center xl:grid-cols-3  gap-6 md:grid-cols-2 grid-cols-1">
         {article.map((article) => {
           return (
-            <div
-              className="flex flex-col border-solid xl:h-[300px]  md:h-[200px] h-[150px] justify-center items-center overflow-scroll gap-3 shadow-sm hover:shadow-lg hover:cursor-pointer hover:transition-shadow duration-300"
-              id={article.tags}
-            >
-              {article.cover_image && (
-                <Image
-                  src={article.cover_image}
-                  alt=""
-                  height={300}
-                  width={300}
-                  className="xl:w-[300px]  md:w-[200px]  w-[100px]"
-                />
-              )}
-              <div className="flex flex-col xl:gap-5 ml-10 justify-center items-center">
-                <h1 className="text-sm md:text-base lg:text-xl">
-                  {article.title}
-                </h1>
-                <h1 className="text-sm text-gray-500">{article.description}</h1>
-                <h3 className="text-xs text-gray-400">
-                  {article.created_at.slice(0, 10)}
-                </h3>
+            <a href={"http://localhost:3000/single?id=" + article.id}>
+              <div
+                className="flex flex-col border-solid xl:h-[300px]  md:h-[200px] h-[150px] justify-center items-center overflow-scroll gap-3 shadow-sm hover:shadow-lg hover:cursor-pointer hover:transition-shadow duration-300"
+                id={article.tags}
+              >
+                {article.cover_image && (
+                  <Image
+                    src={article.cover_image}
+                    alt=""
+                    height={300}
+                    width={300}
+                    className="xl:w-[300px]  md:w-[200px]  w-[100px]"
+                  />
+                )}
+                <div className="flex flex-col xl:gap-5 ml-10 justify-center items-center">
+                  <h1 className="text-sm md:text-base lg:text-xl">
+                    {article.title}
+                  </h1>
+                  <h1 className="text-sm text-gray-500">
+                    {article.description}
+                  </h1>
+                  <h3 className="text-xs text-gray-400">
+                    {article.created_at.slice(0, 10)}
+                  </h3>
+                </div>
               </div>
-            </div>
+            </a>
           );
         })}
       </div>
