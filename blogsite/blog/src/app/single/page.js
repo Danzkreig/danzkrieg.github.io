@@ -16,7 +16,7 @@ export default function single() {
   useEffect(() => {
     getBata();
   }, [SetArticle]);
-  if (search !== "") {
+  if (search !== null) {
     return (
       <div>
         <div className="flex flex-col justify-center items-center relative w-5/6 mr-auto ml-auto text-center">
@@ -40,6 +40,8 @@ export default function single() {
       </div>
     );
   } else {
-    <div>404</div>;
+    <div>
+      <h1>Error 404</h1>
+    </div>;
   }
 }
